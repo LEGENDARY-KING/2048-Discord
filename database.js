@@ -37,8 +37,8 @@ function getDB(id) {
             id: id,
             autosaved: {},
             saved: new Array(10),
-            bestGameScore: {},
-            bestGameMax: {}
+            bestGameScore: "{}",
+            bestGameMax: "{}"
         }
     }
     else {
@@ -53,7 +53,9 @@ function getDB(id) {
         for (let i = 0; i < 10;i++) {
             if(oldData[i])data.saved[i]=oldData[i]
         }
-        
+        if (typeof data.bestGameScore == "object") data.bestGameScore = JSON.parse(data.bestGameScore)
+        if (typeof data.bestGameMax == "object") data.bestGameMax = JSON.parse(data.bestGameMax)
+
     }
     return data;
 
