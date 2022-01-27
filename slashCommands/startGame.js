@@ -25,7 +25,6 @@ const disabledOptionsSecondary = new Discord.MessageActionRow().setComponents([
     new Discord.MessageButton().setCustomId("clear").setLabel("RESET").setEmoji("❌").setStyle("DANGER").setDisabled(true)
 ]);
 
-
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('start')
@@ -272,7 +271,7 @@ module.exports = {
                         else if (moved == 'gameover') {
                             message.channel.send("No legal move in any direction, Game over");
                             embed.setTitle("GAME OVER").setColor("RED");
-                            message.edit({ embeds: [embed], files: [attachment], components: [disabledOptionsMain, disabledOptionsMain] });
+                            message.edit({ embeds: [embed], files: [attachment], components: [disabledOptionsMain, disabledOptionsSecondary] });
                             data.bestGameMax = JSON.parse(data.bestGameMax);
                             data.bestGameScore = JSON.parse(data.bestGameScore);
                             if (!data.bestGameMax[grid]) data.bestGameMax[grid] = { max: 0 }
@@ -291,7 +290,7 @@ module.exports = {
                                     let attach = new Discord.MessageAttachment(maxBoard.toBuffer(), "game.jpg");
                                     message.channel.send({ embeds: [emb], files: [attach] });
                                 }
-                                else message.channel.send({ embeds: emb });
+                                else message.channel.send({ embeds: [emb] });
                                 data.bestGameScore[grid] = {
                                     max: Math.max(...positions),
                                     score: score,
