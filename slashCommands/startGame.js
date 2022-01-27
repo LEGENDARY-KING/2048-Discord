@@ -331,6 +331,7 @@ module.exports = {
                             data.autosaved = JSON.parse(data.autosaved);
                             data.saved = JSON.parse(data.saved);
                         } else {
+                            if (!moved) return;
                             moves++
                             positions = moved.positions;
                             score = moved.score
