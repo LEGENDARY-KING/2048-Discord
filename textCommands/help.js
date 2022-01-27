@@ -4,10 +4,9 @@ const config = require("../config.json")
 const Discord = require("discord.js");
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('help')
-		.setDescription('Shows the help command'),
-	async execute(interaction) {
+	name: "help",
+	description: "Shows help ",
+	async execute(message) {
 		let embed = new Discord.MessageEmbed().setTitle("Help Menu")
 			.setDescription(`This is a bot for the game [2048](https://play2048.co/)
 To start a game type \`/start\`
@@ -22,6 +21,6 @@ And you can load by \`/ start loadslot: [SlotNumber] or Show\` to show all the o
 		let link = new Discord.MessageActionRow().setComponents([
 			new Discord.MessageButton().setStyle("LINK").setURL("https://youtu.be/Ru-RKzMohFs").setLabel("Click here for video tutorial")
 			])
-		interaction.reply({ embeds: [embed], components: [link], ephemeral: true });
+		message.reply({ embeds: [embed], components: [link]});
 	},
 };
