@@ -64,7 +64,7 @@ function goUp(array, num, grid, score) {
             }
             if (array[j] == array[j - grid]) {
                 score += Math.pow(2, array[j - grid])*2;
-                array[j - grid] = (array[j - grid]+1) + "t";
+                array[j - grid] = (parseInt(array[j - grid]+1)) + "t";
                 array[j] = undefined;
             }
         }
@@ -89,7 +89,7 @@ function goDown(array, num, grid, score) {
             }
             if (array[j] == array[j + grid]) {
                 score += Math.pow(2, array[j + grid])*2;
-                array[j + grid] = (array[j + grid]+1) + "t";
+                array[j + grid] = (parseInt(array[j + grid])+1) + "t";
                 array[j] = undefined;
             }
         }
@@ -114,7 +114,7 @@ function goLeft(array, num, grid, score) {
             }
             if (array[j] == array[j - 1]) {
                 score += Math.pow(2, array[j - 1])*2;
-                array[j - 1] = (array[j - 1] +1) + "t";
+                array[j - 1] = (parseInt(array[j - 1]) +1) + "t";
                 array[j] = undefined;
             }
         }
@@ -140,7 +140,7 @@ function goRight(array, num, grid, score) {
             }
             if (array[j] == array[j + 1]) {
                 score += Math.pow(2, array[j + 1])*2;
-                array[j + 1] = (array[j + 1] +1) + "t";
+                array[j + 1] = (parseInt(array[j + 1]) +1) + "t";
                 array[j] = undefined;
             }
         }
