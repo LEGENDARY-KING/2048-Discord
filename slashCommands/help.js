@@ -20,6 +20,6 @@ The bot autosaves after every move so dont worry if you have to go, You can cont
 You can also save by pressing the save button and then the slot
 And you can load by \`/ start loadslot: [SlotNumber] or Show\` to show all the options`);
 		let link = new Discord.MessageButton().setStyle("LINK").setURL("https://youtu.be/Ru-RKzMohFs").setLabel("Click here for video tutorial");
-		message.channel.send({embeds:[embed],components:[link]})
+		interaction.reply({embeds:[embed],components:[link]})
 	},
 };
