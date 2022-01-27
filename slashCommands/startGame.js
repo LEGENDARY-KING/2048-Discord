@@ -187,7 +187,6 @@ module.exports = {
             }
             data.autosaved = JSON.stringify(data.autosaved);
             data.saved = JSON.stringify(data.saved);
-            console.log(data);
             dbobj.setUser.run(data);
             data.autosaved = JSON.parse(data.autosaved);
             data.saved = JSON.parse(data.saved);
