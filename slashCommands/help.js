@@ -5,8 +5,8 @@ const Discord = require("discord.js");
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('SomeName')
-		.setDescription('SomeDescription'),
+		.setName('help')
+		.setDescription('Shows the help command'),
 	async execute(interaction) {
 		let embed = new Discord.MessageEmbed().setTitle("Help Menu")
 			.setDescription(`This is a bot for the game [2048](https://play2048.co/)
@@ -19,7 +19,7 @@ The bot autosaves after every move so dont worry if you have to go, You can cont
 
 You can also save by pressing the save button and then the slot
 And you can load by \`/ start loadslot: [SlotNumber] or Show\` to show all the options`);
-		let link = new Discord.MessageButton.setURL("https://youtu.be/Ru-RKzMohFs").setLabel("Click here for video tutorial").setType("LINK");
+		let link = new Discord.MessageButton().setStyle("LINK").setURL("https://youtu.be/Ru-RKzMohFs").setLabel("Click here for video tutorial");
 		message.channel.send({embeds:[embed],components:[link]})
 	},
 };
