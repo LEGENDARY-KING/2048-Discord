@@ -283,8 +283,8 @@ module.exports = {
                                     .setColor("GREEN");
                                 if (data.bestGameScore[grid].board) {
                                     emb.setImage("attachment://game.jpg").addFields([
-                                        { name: "Score", value: data.bestGameScore[grid].score, inline: true },
-                                        { name: "Max", value: "" + data.bestGameScore[grid].max, inline: true }
+                                        { name: "Score", value: data.bestGameScore[grid].score+"", inline: true },
+                                        { name: "Max", value: "" + data.bestGameScore[grid].max+"", inline: true }
                                     ])
                                     let maxBoard = buildBoard(data.bestGameScore[grid].board, grid);
                                     let attach = new Discord.MessageAttachment(maxBoard.toBuffer(), "game.jpg");
@@ -306,8 +306,8 @@ module.exports = {
                                     .setColor("GREEN");
                                 if (data.bestGameMax[grid].board) {
                                     emb.setImage("attachment://game.jpg").addFields([
-                                        { name: "Score", value: data.bestGameMax[grid].score, inline: true },
-                                        { name: "Max", value: "" + data.bestGameMax[grid].max, inline: true }
+                                        { name: "Score", value: data.bestGameMax[grid].score+"", inline: true },
+                                        { name: "Max", value: "" + data.bestGameMax[grid].max+"", inline: true }
                                     ])
                                     let maxBoard = buildBoard(data.bestGameMax[grid].board, grid);
                                     let attach = new Discord.MessageAttachment(maxBoard.toBuffer(), "game.jpg");
