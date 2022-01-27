@@ -59,17 +59,6 @@ for (const file of eventFiles) {
 }
 
 
-//Cron job to update the voice channel with the member count every 15 minutes
-let job = new CronJob('0 */15 * * * *', async function () {
-    let memberVC = await client.channels.fetch(config.memberCountVCId);
-    if (!memberVC) console.error("Uh-Oh Member Count VC not found", "ERROR_CONFIG"); return;
-    let memberCount = memberVC.guild.memberCount;
-    if (memberVC.name == "Members: " + memberCount) return; //Return if the member count hasnt changed
-    memberVC.edit({ name: "Members: " + memberCount }).catch(e => {
-        console.error(`Could not update the member count \n${e.message}\n${e.code}`)
-    })
-});
-job.start()
 
 
 

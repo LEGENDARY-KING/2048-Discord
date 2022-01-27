@@ -1,0 +1,7 @@
+{
+  "token": "yourClientToken",
+  "clientId": "yourClientID",
+  "guildId": "yourTestGuildID",
+  "ownerIds": [ "yourID(Eval Command)" ],
+  "prefix": "Prefix"
+}
