@@ -33,7 +33,13 @@ module.exports = {
         .addBooleanOption(option => option.setName('force').setDescription('Force starts a new game(OLD GAME CANNOT BE RETRIEVED)'))
         .addStringOption(option => option.setName('loadslot').setDescription('Loads a game(Select show to show all slots. Wont work if Force new is true)').addChoices([["Show", 'show'], ["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6'], ["7", '7'], ["8", '9'], ["10", '10']])),
     async execute(interaction) {
-        await interaction.reply({ content: "Fetching data", });
+        let hasPerms=true
+        if (interaction.guild) {
+            hasPerms=interaction.channel.permissionsFor(interaction.guild.me).has(["EMBED_LINKS", "ATTACH_FILES"]);
+
+        }
+        if (!hasPerms) return interaction.reply({ content: "Bot does not have permission to send embeds or attach files in this channel", ephemeral: true });
+        await interaction.reply({ content: "Fetching data"});
         let data = dbobj.getDB(interaction.user.id);
         let force = interaction.options.getBoolean('force') || false;
         let load = interaction.options.getString('loadslot');
@@ -158,6 +164,11 @@ module.exports = {
             sendGame(positions, message, 0, 0, grid);
         }
         async function sendGame(positions, message, moves, score, grid) {
+            if (interaction.guild) {
+                hasPerms = interaction.channel.permissionsFor(interaction.guild.me).has(["EMBED_LINKS", "ATTACH_FILES"]);
+
+            }
+            if (!hasPerms) return message.channel.send({ content: "Bot does not have permission to send embeds or attach files in this channel. Game has been autosaved" });
             let board = buildBoard(positions, grid);
             let attachment = new Discord.MessageAttachment(board.toBuffer(), "game.jpg");
             const embed = new Discord.MessageEmbed()
