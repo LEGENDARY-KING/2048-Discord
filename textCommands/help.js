@@ -21,7 +21,7 @@ And you can load by \`/ start loadslot: [SlotNumber] or Show\` to show all the o
 
 		let link = new Discord.MessageActionRow().setComponents([
 			new Discord.MessageButton().setStyle("LINK").setURL("https://youtu.be/Ru-RKzMohFs").setLabel("Video tutorial"),
-			new Discord.MessageButton().setStyle("LINK").setURL("https://discord.com/api/oauth2/authorize?client_id=592382087797932045&permissions=116736&scope=bot%20applications.commands ").setLabel("Invite the bot!"),
+			new Discord.MessageButton().setStyle("LINK").setURL("https://discord.com/api/oauth2/authorize?client_id=592382087797932045&permissions=116736&scope=bot%20applications.commands").setLabel("Invite the bot!"),
 			new Discord.MessageButton().setStyle("LINK").setURL("https://discord.gg/EKZTYtznav").setLabel("Join support server")
 		])
 		message.reply({ embeds: [embed], components: [link]});
