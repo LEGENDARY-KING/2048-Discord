@@ -18,7 +18,7 @@ The bot autosaves after every move so dont worry if you have to go, You can cont
 
 You can also save by pressing the save button and then the slot
 And you can load by \`/ start loadslot: [SlotNumber] or Show\` to show all the options`);
-		And you can load by \`/ start loadslot: [SlotNumber] or Show\` to show all the options`);
+
 		let link = new Discord.MessageActionRow().setComponents([
 			new Discord.MessageButton().setStyle("LINK").setURL("https://youtu.be/Ru-RKzMohFs").setLabel("Video tutorial"),
 			new Discord.MessageButton().setStyle("LINK").setURL("https://discord.com/api/oauth2/authorize?client_id=592382087797932045&permissions=116736&scope=bot%20applications.commands ").setLabel("Invite the bot!"),
